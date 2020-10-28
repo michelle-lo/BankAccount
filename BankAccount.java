@@ -46,14 +46,19 @@ public class BankAccount {
    *@return true when the balance is large enough, false otherwise.
    */
    public boolean withdraw(double amount) {
-     if (amount < balance) {
+     if (amount <= balance && amount >= 0) {
        balance -= amount;
        return true;
      } else {
        return false;
      }
    }
-   
+
+   /*Return a String to be used to display the account data. "ACCOUNT\tBALANCE" */
+   public String toString(){
+     return accountID + "\t" + balance;
+   }
+
   public static void main (String[] args) {
 
   }
