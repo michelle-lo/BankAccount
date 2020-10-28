@@ -26,11 +26,34 @@ public class BankAccount {
     return password;
   }
 
+  /*Only when amount is positive: Increase balance by amount and return true.
+   *@return When amount is positive: Return true, otherwise return false.
+   *@param amount The amount is how much to change the balance by.
+   */
   public boolean deposit(double amount) {
-    //if (amount < 0)
-    return true;
+    if (amount >= 0) {
+      balance += amount;
+      return true;
+    } else {
+      return false;
+    }
   }
 
+   /*Only when amount is positive and the amount does not exceed the balance:
+   *Decrease balance by amount and return true, return false otherwise.
+   *Make no change if the amount is too large to withdraw
+   *@param amount The amount is how much to change the balance by.
+   *@return true when the balance is large enough, false otherwise.
+   */
+   public boolean withdraw(double amount) {
+     if (amount < balance) {
+       balance -= amount;
+       return true;
+     } else {
+       return false;
+     }
+   }
+   
   public static void main (String[] args) {
 
   }

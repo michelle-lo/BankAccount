@@ -3,7 +3,18 @@ public class Tester {
     BankAccount b1 = new BankAccount(9, "hello");
     System.out.println(b1.getBalance()); //0.0
     System.out.println(b1.getAccountID()); //9
+    System.out.println("----setPassword----");
     System.out.println(b1.setPassword("goodbye")); //"goodbye"
+    System.out.println("----deposit----");
+    System.out.println(b1.deposit(0));
+    System.out.println(b1.deposit(20));
+    System.out.println(b1.deposit(-10));
+    System.out.println(b1.deposit(30));
+    System.out.println(b1.getBalance());
+    System.out.println("----withdraw----");
+    System.out.println(b1.withdraw(20));
+    System.out.println(b1.withdraw(10000));
+    System.out.println(b1.getBalance());
 
 
   }
