@@ -18,6 +18,21 @@ public class Tester {
     System.out.println(b1.getBalance()); //30
     System.out.println("----toString----");
     System.out.println(b1.toString()); //#123455	$30.0
-
+    System.out.println("----transferTo----");
+    BankAccount b2 = new BankAccount(000000, "farewell");
+    BankAccount b3 = new BankAccount(111111, "see you again");
+    System.out.println(b1.transferTo(b2, 90.0, "goodbye")); //false --> value of 90 is too large
+    System.out.println(b1.getBalance()); //30
+    System.out.println(b2.getBalance()); //0
+    System.out.println(b1.transferTo(b3, 90.0, "farewell")); //false --> password doesn't match
+    System.out.println(b1.getBalance()); ///30
+    System.out.println(b3.getBalance()); //0
+    BankAccount b4 = new BankAccount(222222, "goodbye");
+    System.out.println(b1.transferTo(b4, 25, "goodbye")); //true --> correct password, small enough amount
+    System.out.println(b1.getBalance()); //5
+    System.out.println(b4.getBalance()); //25
+    System.out.println(b1.transferTo(b4, -100, "goodbye")); //false --> negative amount
+    System.out.println(b1.getBalance()); //5
+    System.out.println(b4.getBalance()); //25
   }
 }

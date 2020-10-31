@@ -5,10 +5,10 @@ public class BankAccount {
   private String password;
 
   //constructor -- intialize stuff
-  public BankAccount (/*int acc, String pass*/ int accountID, String password) {
+  public BankAccount (int accountID, String password) {
     balance = 0;
-    //accountID = acc; //this.accountID - accountID;
-    //password = pass; //this.password = password;
+    //accountID = acc;
+    //password = pass;
     this.accountID = accountID;
     this.password = password;
   }
@@ -77,7 +77,19 @@ public class BankAccount {
    *@return true if money is successfully transfered, false otherwise.
    */
   public boolean transferTo(BankAccount other, double amount, String password) {
-    return true;
+    if (authenticate(password)) {
+      if (amount <= balance && amount >= 0) {
+          withdraw(amount);
+          System.out.println(balance);
+          other.deposit(amount);
+          System.out.println(other.getBalance());
+          return true;
+      } else {
+        return false;
+      }
+    } else {
+      return false;
+    }
   }
 
 
