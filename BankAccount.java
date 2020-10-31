@@ -1,3 +1,5 @@
+//HW12-13
+//November 2nd, 2020
 public class BankAccount {
   //instance variables
   private double balance;
@@ -80,9 +82,7 @@ public class BankAccount {
     if (authenticate(password)) {
       if (amount <= balance && amount >= 0) {
           withdraw(amount);
-          System.out.println(balance);
           other.deposit(amount);
-          System.out.println(other.getBalance());
           return true;
       } else {
         return false;
